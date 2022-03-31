@@ -338,6 +338,7 @@ include('controller/function.php');
                             <th>Kode Matakuliah</th>
                             <th>Nama Matakuliah</th>
                             <th>SKS</th>
+                            <th>Tahun Ajaran</th>
                         </tr>
                         </thead>
                         <tbody id="dataTable">
@@ -424,6 +425,7 @@ function pageinate(id){
                             <td>${hasil[i][2]}</td>
                             <td>${hasil[i][3]}</td>
                             <td>${hasil[i][4]}</td>
+                            <td>${hasil[i][5]}</td>
                         </tr>
                         `;
             }
@@ -488,7 +490,7 @@ const fetchData = (search , dataSelect) => {
         params = Object.assign({}, ajaxParams, params);
 
         let query = 'controller/fetch.php' + '?' + queryParams(params);
-        // console.log(query);
+        
         fetch(query, {
             method: 'GET',
             credentials: "same-origin",
@@ -509,6 +511,7 @@ const fetchData = (search , dataSelect) => {
                             <td>${json.data[i][2]}</td>
                             <td>${json.data[i][3]}</td>
                             <td>${json.data[i][4]}</td>
+                            <td>${json.data[i][5]}</td>
                         </tr>
                         `;
             }
@@ -521,11 +524,11 @@ const fetchData = (search , dataSelect) => {
 }
 
     document.addEventListener('keyup', function (event) {
-       console.log(event.target.value)
   
     search = event.target.value;
   
     dataSelect =  document.getElementById('choice').value;
+    console.log(search)
     fetchData(search , dataSelect)
     if(search){
         document.getElementById('pg').style.display = 'none';

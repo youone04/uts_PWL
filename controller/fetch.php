@@ -30,18 +30,18 @@ $column = array("kode_kelas", "nama_kelas", "kode_matakuliah", "nama_matakuliah"
 
 $query = "SELECT * FROM matakuliah";
 
-// $query .= '
-// 	WHERE ta LIKE "%'.$search.'%" 
-// 	OR nama_kelas LIKE "%'.$search.'%" 
-// 	OR kode_matakuliah LIKE "%'.$search.'%" 
-// 	OR nama_matakuliah LIKE "%'.$search.'%" 
-// 	OR sks LIKE "%'.$search.'%"
-// ';
-
 $query .= '
-	WHERE tahun_ajaran = "'.$tahunAjaran.'" 
-	
+	WHERE kode_kelas LIKE "%'.$search.'%" AND tahun_ajaran = "'.$tahunAjaran.'"
+	OR nama_kelas LIKE "%'.$search.'%" AND tahun_ajaran = "'.$tahunAjaran.'"
+	OR kode_matakuliah LIKE "%'.$search.'%" AND tahun_ajaran = "'.$tahunAjaran.'"
+	OR nama_matakuliah LIKE "%'.$search.'%" AND tahun_ajaran = "'.$tahunAjaran.'"
+	OR sks LIKE "%'.$search.'%" AND tahun_ajaran = "'.$tahunAjaran.'"
 ';
+
+// $query .= '
+// 	WHERE tahun_ajaran = "'.$tahunAjaran.'" 
+	
+// ';
 
 
 
@@ -84,6 +84,8 @@ foreach($result as $row)
 	$sub_array[] = $row['nama_matakuliah'];
 
 	$sub_array[] = $row['sks'];
+
+	$sub_array[] = $row['tahun_ajaran'];
 
 	$data[] = $sub_array;
 }

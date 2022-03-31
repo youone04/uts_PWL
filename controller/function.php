@@ -25,6 +25,7 @@ function fetch_top_five_data($connect)
 			<td>'.$row["kode_matakuliah"].'</td>
 			<td>'.$row["nama_matakuliah"].'</td>
 			<td>'.$row["sks"].'</td>
+			<td>'.$row["tahun_ajaran"].'</td>
 		</tr>
 		';
 	}

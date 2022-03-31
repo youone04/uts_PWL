@@ -26,7 +26,7 @@ $tahunAjaran = filter_input(INPUT_GET, "tahunAjaran", FILTER_SANITIZE_STRING);
 //"sortDirection"	-	the sorting direction (asc or desc)
 $sortDirection = filter_input(INPUT_GET, "sortDirection", FILTER_SANITIZE_STRING);
 
-$column = array("kode_kelas", "nama_kelas", "kode_matakuliah", "nama_matakuliah","sks");
+$column = array("kode_kelas", "nama_kelas", "kode_matakuliah", "nama_matakuliah","sks","tahun_ajaran");
 
 $query = "SELECT * FROM matakuliah WHERE tahun_ajaran = '$tahunAjaran' ORDER BY id DESC ";
 
@@ -54,6 +54,7 @@ foreach($result as $row)
 	$sub_array[] = $row['nama_matakuliah'];
 
 	$sub_array[] = $row['sks'];
+	$sub_array[] = $row['tahun_ajaran'];
 
 	
 
